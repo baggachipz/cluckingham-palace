@@ -1,0 +1,22 @@
+{
+  "name": "cluckingham-palace",
+  "version": "1.0.0",
+  "description": "Chicken coop software on a Raspberry PI, motor to control the coop door, and a camera to control entry using computer vision and ML to only allow entry to chickens.",
+  "main": "server.js",
+  "scripts": {
+    "test-image": "node src/test-image.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/baggachipz/cluckingham-palace.git"
+  },
+  "author": "Matt Curtis",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/baggachipz/cluckingham-palace/issues"
+  },
+  "homepage": "https://github.com/baggachipz/cluckingham-palace#readme",
+  "dependencies": {
+    "tensorflow": "^0.7.0"
+  }
+}

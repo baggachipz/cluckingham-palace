@@ -1,8 +1,8 @@
 {
   "name": "cluckingham-palace",
   "version": "1.0.0",
-  "description": "Chicken coop software on a Raspberry PI, motor to control the coop door, and a camera to control entry using computer vision and ML to only allow entry to chickens.",
-  "main": "server.js",
+  "description": "Chicken coop software on a Raspberry PI, motor to control the coop door, and a camera to control entry using computer vision and ML to only allow entry for chickens.",
+  "main": "src/app.js",
   "scripts": {
     "test-image": "node src/test-image.js"
   },
@@ -17,10 +17,10 @@
   },
   "homepage": "https://github.com/baggachipz/cluckingham-palace#readme",
   "dependencies": {
-    "@tensorflow-models/mobilenet": "^0.2.2",
-    "@tensorflow/tfjs": "^0.14.2",
-    "@tensorflow/tfjs-node": "^0.1.9",
-    "jpeg-js": "^0.3.4",
     "node-fetch": "^2.3.0"
+  },
+  "devDependencies": {
+    "jpeg-js": "^0.3.4",
+    "md5-file": "^4.0.0"
   }
 }

@@ -1,8 +1,20 @@
-var five = require("johnny-five");
-var board = new five.Board();
+const Raspi = require('raspi-io');
+const five = require('johnny-five');
+const board = new five.Board({
+  io: new Raspi({
+    enableSoftPwm: true
+  })
+});
 
 board.on("ready", () => {
-  const motor = new five.Motor([17, 27]);
+  //const motor = new five.Motor({
+  //  pins: {
+  //    pwm: 'GPIO23',
+  //    dir: 'GPIO24',
+  //    cdir: 'GPIO25'
+  //  }
+  //});
+  const motor = new five.Motor(['GPIO23', 'GPIO24']);
 
   board.repl.inject({
     motor: motor
@@ -21,7 +33,7 @@ board.on("ready", () => {
 
     // demonstrate switching to reverse after 5 seconds
     board.wait(5000, function() {
-      motor.reverse(50);
+      motor.reverse(100);
     });
   });
 
@@ -35,5 +47,8 @@ board.on("ready", () => {
   });
 
   // set the motor going forward full speed
-  motor.forward(255);
+  //motor.disable(); 
+  motor.forward(50);
+  //motor.enable();
 });
+

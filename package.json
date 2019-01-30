@@ -2,7 +2,7 @@
   "name": "cluckingham-palace",
   "version": "1.0.0",
   "description": "Chicken coop software on a Raspberry PI, motor to control the coop door, and a camera to control entry using computer vision and ML to only allow entry for chickens.",
-  "main": "src/app.js",
+  "main": "app.js",
   "scripts": {
     "test-image": "node src/test-image.js"
   },
@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/baggachipz/cluckingham-palace#readme",
   "dependencies": {
+    "johnny-five": "^1.0.0",
     "node-fetch": "^2.3.0"
   },
   "devDependencies": {

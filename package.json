@@ -18,12 +18,12 @@
   },
   "homepage": "https://github.com/baggachipz/cluckingham-palace#readme",
   "dependencies": {
-    "johnny-five": "^1.0.0",
-    "node-fetch": "^2.3.0",
-    "raspi-io": "^9.0.1"
+    "johnny-five": "^1.4.0",
+    "node-fetch": "^2.6.0",
+    "raspi-io": "^11.0.0"
   },
   "devDependencies": {
-    "jpeg-js": "^0.3.4",
-    "md5-file": "^4.0.0"
+    "jpeg-js": "^0.4.0",
+    "md5-file": "^5.0.0"
   }
 }

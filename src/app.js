@@ -7,13 +7,7 @@ const board = new five.Board({
 });
 
 board.on("ready", () => {
-  //const motor = new five.Motor({
-  //  pins: {
-  //    pwm: 'GPIO23',
-  //    dir: 'GPIO24',
-  //    cdir: 'GPIO25'
-  //  }
-  //});
+  
   const motor = new five.Motor(['GPIO23', 'GPIO24']);
 
   board.repl.inject({

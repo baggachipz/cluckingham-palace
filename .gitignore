@@ -2,3 +2,4 @@
 /node_modules
 /models/training_data
 .vscode
+src/state.json

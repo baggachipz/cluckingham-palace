@@ -24,8 +24,8 @@ class State {
     return this
   }
 
-  get(name) {
-    return this.data[name]
+  get(name, defaultValue) {
+    return typeof(this.data[name]) === 'undefined' ? defaultValue : this.data[name]
   }
 
   set(name, val) {

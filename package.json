@@ -4,6 +4,7 @@
   "description": "Chicken coop software on a Raspberry PI, motor to control the coop door, and a camera to control entry using computer vision and ML to only allow entry for chickens.",
   "main": "app.js",
   "scripts": {
+    "dev": "nodemon",
     "app": "node src/app.js",
     "test-image": "node src/test-image.js"
   },
@@ -21,11 +22,11 @@
     "express": "^4.17.1",
     "johnny-five": "^1.4.0",
     "node-fetch": "^2.6.0",
-    "nodemon": "^2.0.4",
     "raspi-io": "^11.0.0"
   },
   "devDependencies": {
     "jpeg-js": "^0.4.0",
-    "md5-file": "^5.0.0"
+    "md5-file": "^5.0.0",
+    "nodemon": "^2.0.4"
   }
 }

@@ -10,9 +10,11 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
 // functional routes
-app.get('/api/door', door.getStatus)
 app.post('/api/door', door.runAction)
+app.get('/api/door/status', door.getStatus)
 app.put('/api/door/status', door.setStatus)
+app.get('/api/door/motor', door.getMotor)
+app.put('/api/door/motor', door.setMotor)
 
 // route everything else to the client assets
 app.use('/', express.static(path.join(__dirname, 'public/spa')))

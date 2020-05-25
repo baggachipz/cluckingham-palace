@@ -1,11 +1,11 @@
 const motor = require('./motor')
 const state = require('./state')
 
-module.exports = {
+const Door = {
   getStatus: (req, res) => {
     res.json(state.get('door'))
   },
-  setStatus: async (req, res) => {
+  setStatus: (req, res) => {
     let newStatus
     switch (req.body.status) {
       case 'open':
@@ -24,7 +24,30 @@ module.exports = {
       res.status(500).json(e.message)
     }
   },
-  runAction: (req, res) => {
+  getMotor: (req, res) => {
+    res.json({
+      speed: state.get('motor-speed'),
+      time: state.get('motor-time')
+    })
+  },
+  setMotor: (req, res) => {
+    const motorTime = parseInt(req.body.time)
+    const motorSpeed = parseInt(req.body.speed)
+
+    if (isNaN(motorTime) && isNaN(motorSpeed)) {
+      return res.status(400).json(`Time and Speed ${req.body.time}, ${req.body.speed} is not valid.`)
+    }
+
+    if (!isNaN(motorTime)) {
+      state.set('motor-time', motorTime)
+    }
+    if (!isNaN(motorSpeed)) {
+      state.set('motor-speed', motorSpeed)
+    }
+    state.save()
+    return Door.getMotor(req, res)
+  },
+  runAction: async (req, res) => {
     switch(req.body.action) {
       case 'open':
         return this.open(req, res)
@@ -57,22 +80,7 @@ module.exports = {
       console.log(`Unable to close door: ${e.message}`)
       res.status(500).json(e.message)
     }
-  },
-  
-  setOpen: async (req, res) => {
-    try {
-      state.set('door', 1).save()
-      res.json(state.get('door'))
-    } catch (e) {
-      res.status(500).json(e.message)
-    }
-  },
-  setClosed: async (req, res) => {
-    try {
-      state.set('door', 0).save()
-      res.json(state.get('door'))
-    } catch (e) {
-      res.status(500).json(e.message)
-    }
   }
 }
+
+module.exports = Door

@@ -1,0 +1,5 @@
+{
+  "exec": "npm run app",
+  "watch": ["./src/*", "routes/*", "public/*", "models/*", "mails/*", "controllers/*"],
+  "ext": "js, html, css, json, pug"
+}

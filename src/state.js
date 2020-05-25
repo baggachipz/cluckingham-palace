@@ -9,7 +9,13 @@ class State {
   }
   
   load () {
-    this.data = require(FILE_NAME)
+    try {
+      this.data = require(FILE_NAME)
+    } catch (e) {
+      this.data = {
+        "door": 0
+      }
+    }
     return this
   }
 

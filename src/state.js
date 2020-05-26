@@ -1,6 +1,7 @@
 const fs = require('fs')
 const path = require('path')
 
+const DEFAULT_DATA = require('./state.default.json')
 const FILE_NAME = './state.json'
 
 class State {
@@ -12,9 +13,7 @@ class State {
     try {
       this.data = require(FILE_NAME)
     } catch (e) {
-      this.data = {
-        "door": 0
-      }
+      this.data = DEFAULT_DATA
     }
     return this
   }
@@ -25,6 +24,7 @@ class State {
   }
 
   get(name, defaultValue) {
+    if (typeof(defaultValue) === 'undefined') defaultValue = DEFAULT_DATA[name]
     return typeof(this.data[name]) === 'undefined' ? defaultValue : this.data[name]
   }
 

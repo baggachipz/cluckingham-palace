@@ -5,16 +5,7 @@ const board = new five.Board({
 })
 const state = require('./state')
 
-const MOTOR_TIME_DEFAULT = 3000 // # of ms to run the motor for in either direction
-const MOTOR_SPEED_DEFAULT = 255 // 0-255, for speed
-
-const motor = new five.Motor({
-  pins: {
-    pwm: 1,
-    dir: 4
-  },
-  invertPWM: true
-})
+const motor = new five.Motor(state.get('motor'))
 
 board.on('ready', function () {
   
@@ -35,8 +26,8 @@ module.exports = {
     return new Promise((resolve, reject) => {
       try {
         console.log('starting door open')
-        motor.forward(state.get('motor-speed', MOTOR_SPEED_DEFAULT))
-        board.wait(state.get('motor-time', MOTOR_TIME_DEFAULT), function() {
+        motor.forward(state.get('motor-speed'))
+        board.wait(state.get('motor-time'), function() {
           motor.stop()
           console.log('stop door open')
           resolve(true)
@@ -49,8 +40,8 @@ module.exports = {
   closeDoor: function () {
     return new Promise((resolve, reject) => {
       try {
-        motor.reverse(state.get('motor-speed', MOTOR_SPEED_DEFAULT))
-        board.wait(state.get('motor-time', MOTOR_TIME_DEFAULT), function() {
+        motor.reverse(state.get('motor-speed'))
+        board.wait(state.get('motor-time'), function() {
           motor.stop()
           resolve(true)
         })

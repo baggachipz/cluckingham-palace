@@ -13,6 +13,8 @@ app.use(express.urlencoded({ extended: false }))
 app.post('/api/door', door.runAction)
 app.get('/api/door/status', door.getStatus)
 app.put('/api/door/status', door.setStatus)
+app.get('/api/door/automatic', door.getAutomatic)
+app.put('/api/door/automatic', door.setAutomatic)
 app.get('/api/door/motor', door.getMotor)
 app.put('/api/door/motor', door.setMotor)
 

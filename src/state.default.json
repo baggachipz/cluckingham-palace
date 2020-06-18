@@ -3,11 +3,11 @@
   "automatic": 0,
   "motor": {
     "pins": {
-      "pwm": 1,
-      "dir": 4
+      "pwm": "GPIO23",
+      "dir": "GPIO24"
     },
     "invertPWM": true
   },
   "motor-speed": 255,
-  "motor-time": 3000
+  "motor-time": 10000
 }

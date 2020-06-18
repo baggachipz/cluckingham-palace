@@ -5,6 +5,7 @@ const board = new five.Board({
 })
 const state = require('./state')
 
+console.log(state.get('motor-speed'))
 const motor = new five.Motor(state.get('motor'))
 
 board.on('ready', function () {

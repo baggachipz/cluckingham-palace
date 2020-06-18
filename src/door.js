@@ -66,9 +66,9 @@ const Door = {
   runAction: async (req, res) => {
     switch(req.body.action) {
       case 'open':
-        return this.open(req, res)
+        return Door.open(req, res)
       case 'close':
-        return this.close(req, res)
+        return Door.close(req, res)
       default:
         res.status(400).json(`Action ${req.body.action} is not allowed.`)
     }

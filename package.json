@@ -21,7 +21,7 @@
   "dependencies": {
     "express": "^4.17.1",
     "johnny-five": "^1.4.0",
-    "node-fetch": "^2.6.0",
+    "node-fetch": "^2.6.1",
     "raspi-io": "^11.0.0"
   },
   "devDependencies": {
